@@ -1,0 +1,4 @@
+// transition (vendor prefixes removed - supported unprefixed since 2015)
+@mixin transition($args...) {
+    transition: $args;
+}

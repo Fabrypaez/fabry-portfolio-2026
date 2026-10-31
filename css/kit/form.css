@@ -1,0 +1,10 @@
+/*!
+ * Colorlib kit: form.css (pairs with js/form.js)
+ */
+.kit-form-status { margin-top: 1rem; padding: .75rem 1rem; border-radius: 4px; font-size: .95em; }
+.kit-form-status:empty, .kit-form-status[hidden] { display: none; }
+.kit-form-status.is-sending { background: rgba(0, 0, 0, .04); color: inherit; }
+.kit-form-status.is-success { background: #e7f6ec; color: #145c2c; }
+.kit-form-status.is-error { background: #fdecec; color: #8a1c1c; }
+form [aria-invalid="true"] { border-color: #d93025 !important; }
+form [aria-busy="true"] { cursor: progress; opacity: .7; }

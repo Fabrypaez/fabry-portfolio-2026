@@ -1,0 +1,42 @@
+/*!
+ * Colorlib kit: map.css (pairs with js/map.js)
+ * Click-to-load map: the placeholder and, after "Show map", the iframe fill the container,
+ * which keeps the size the theme gives it (#map { height: 400px } and the like).
+ * Colours and the button come from the theme: set the custom properties below on the
+ * container, and give the button the theme's own button classes.
+ */
+.kit-map {
+  position: relative;
+  min-height: var(--kit-map-min-height, 300px);
+  overflow: hidden;
+}
+.kit-map__placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  background: var(--kit-map-bg, #eef0f2);
+  color: var(--kit-map-color, #212529);
+}
+.kit-map__placeholder[hidden] { display: none; }
+.kit-map__address { margin: 0; max-width: 32em; }
+.kit-map__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem 1.5rem;
+}
+.kit-map__frame {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}

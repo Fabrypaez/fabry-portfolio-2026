@@ -1,0 +1,384 @@
+/*---------------------
+  Header
+-----------------------*/
+.header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 9;
+}
+
+.header__logo {
+    padding: 30px 0;
+
+    a {
+        display: inline-block;
+    }
+}
+
+.header__nav__option {
+    text-align: right;
+    padding: 28px 0px;
+}
+
+.header__nav__menu {
+    display: inline-block;
+    margin-right: 45px;
+
+    ul {
+
+        li {
+            list-style: none;
+            display: inline-block;
+            margin-right: 45px;
+            position: relative;
+
+            &.active {
+
+                a {
+                    
+                    &:after {
+                        transform: scale(1);
+                    }
+                }
+            }
+
+            &:hover {
+
+                a {
+                    
+                    &:after {
+                        transform: scale(1);
+                    }
+                }
+
+                .dropdown {
+                    top: 34px;
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            .dropdown {
+                position: absolute;
+                left: 0;
+                top: 60px;
+                width: 140px;
+                background: $white-color;
+                text-align: left;
+                padding: 2px 0;
+                z-index: 9;
+                opacity: 0;
+                visibility: hidden;
+                @include transition(all, .3s);
+
+                li {
+                    display: block;
+                    margin-right: 0;
+
+                    a {
+                        font-size: 14px;
+                        color: #111111;
+                        padding: 8px 20px;
+                        text-transform: capitalize;
+
+                        &:after {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            a {
+                font-size: 15px;
+                font-family: 'Play', sans-serif;
+                color: $white-color;
+                display: block;
+                text-transform: uppercase;
+                position: relative;
+                padding: 6px 0;
+
+                &:after {
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 2px;
+                    background: $primary-color;
+                    content: '';
+                    transform: scale(0);
+                    @include transition(all, .3s);
+                }
+            }
+        }
+    }
+}
+
+.header__nav__social {
+    display: inline-block;
+    position: relative;
+    padding-left: 50px;
+
+    &:before {
+        position: absolute;
+        left: 0;
+        top: 4px;
+        height: 13px;
+        width: 1px;
+        background: rgba(225, 225, 225, 0.2);
+        content: "";
+    }
+
+    a {
+        color: $white-color;
+        font-size: 15px;
+        margin-right: 18px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+/*---------------------
+  Mobile Menu
+-----------------------*/
+#mobile-menu-wrap {
+    display: none;
+    position: relative;
+
+    // When visible on mobile, ensure it has dimensions
+    &.visible,
+    &[style*="display: block"] {
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
+
+// Hamburger toggle button
+.mobile-menu-toggle {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    z-index: 1001;
+    border-radius: 4px;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    span {
+        display: block !important;
+        width: 24px;
+        height: 3px;
+        background: $white-color;
+        margin: 3px 0;
+        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transform-origin: center;
+        border-radius: 2px;
+    }
+
+    &.active {
+        span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+    }
+
+    &:focus {
+        outline: 2px solid $primary-color;
+        outline-offset: 2px;
+    }
+}
+
+// Off-canvas mobile navigation: kit mobile-nav.js builds a <dialog class="kit-mobile-nav">
+// from the header's [data-mobile-nav-source] lists (menu + social links); main.js adds the logo.
+.kit-mobile-nav {
+    --kit-nav-width: min(300px, 85vw);
+    --kit-nav-bg: linear-gradient(180deg, #{$secondary-color} 0%, #{darken($secondary-color, 5%)} 100%);
+    --kit-nav-color: #{$white-color};
+    --kit-nav-accent: #{$primary-color};
+    --kit-nav-border: rgba(255, 255, 255, 0.05);
+    --kit-nav-backdrop: rgba(0, 0, 0, 0.7);
+    --kit-nav-speed: 0.4s;
+
+    .kit-mobile-nav__panel {
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3);
+        transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    // Menu header: logo + round close button
+    .kit-mobile-nav__head {
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 25px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-nav__logo {
+        img {
+            display: block;
+            max-height: 30px;
+            width: auto;
+        }
+    }
+
+    .kit-mobile-nav__close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: $white-color;
+        font-family: inherit;
+        font-size: 28px;
+        font-weight: 300;
+        line-height: 1;
+        padding-bottom: 4px; // visual centring of the × character
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: $primary-color;
+            color: $white-color;
+        }
+    }
+
+    .kit-mobile-nav__body {
+        padding: 0;
+    }
+
+    // Navigation list
+    .kit-mobile-nav__list {
+        li {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+            &.active > a {
+                color: $primary-color;
+            }
+
+            > a {
+                color: $white-color;
+                font-size: 15px;
+                font-family: 'Play', sans-serif;
+                font-weight: 600;
+                line-height: 1.5;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                padding: 16px 25px;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    color: $primary-color;
+                    padding-left: 30px;
+                }
+            }
+        }
+
+        // Submenu toggle drawn as the old caret triangle
+        .kit-mobile-nav__sub-toggle {
+            width: 44px;
+            margin-right: 8px;
+
+            > span {
+                width: 0;
+                height: 0;
+                border: 0;
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                border-top: 5px solid currentColor;
+                transform: none;
+                transition: transform 0.3s ease;
+            }
+
+            &[aria-expanded="true"] > span {
+                transform: rotate(180deg);
+            }
+        }
+
+        .kit-mobile-nav__has-sub:has(> .kit-mobile-nav__sub-toggle[aria-expanded="true"]) > a {
+            color: $primary-color;
+        }
+
+        // Dropdown submenu
+        .kit-mobile-nav__sub {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px 0;
+
+            li {
+                border-bottom: none;
+
+                > a {
+                    padding: 12px 25px 12px 40px;
+                    font-size: 13px;
+                    font-weight: 400;
+                    text-transform: none;
+                    letter-spacing: 0;
+                    color: rgba(255, 255, 255, 0.8);
+
+                    &:hover {
+                        color: $primary-color;
+                        padding-left: 45px;
+                    }
+                }
+            }
+        }
+    }
+
+    // Social links at the bottom
+    .header__nav__social {
+        display: block;
+        padding: 25px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 20px;
+
+        a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: $white-color;
+            font-size: 16px;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &:hover {
+                background: $primary-color;
+                transform: translateY(-3px);
+            }
+        }
+
+        &::before {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,53 @@
+/*!
+ * Colorlib kit: video-dialog.css (pairs with js/video-dialog.js)
+ * Override the custom properties in the theme CSS to restyle.
+ */
+.kit-video-dialog {
+  --kit-video-max: 1100px;
+  --kit-video-backdrop: rgba(11, 11, 11, .88);
+  --kit-video-close: #fff;
+  width: min(92vw, var(--kit-video-max));
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+  color: #fff;
+}
+.kit-video-dialog::backdrop { background: var(--kit-video-backdrop); }
+.kit-video-dialog__inner { position: relative; }
+.kit-video-dialog__stage {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  max-height: 85vh;
+  background: #000;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .6);
+}
+.kit-video-dialog__stage.is-map { aspect-ratio: 4 / 3; background: #fff; }
+.kit-video-dialog__stage > iframe,
+.kit-video-dialog__stage > video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.kit-video-dialog__close {
+  position: absolute;
+  top: -44px;
+  right: -4px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--kit-video-close);
+  font: 300 36px/44px Arial, sans-serif;
+  cursor: pointer;
+  opacity: .8;
+}
+.kit-video-dialog__close:hover, .kit-video-dialog__close:focus-visible { opacity: 1; }
+.kit-video-dialog__close:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+html.kit-video-dialog-open { overflow: hidden; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .kit-video-dialog[open] { animation: kit-video-in .25s ease-out; }
+  .kit-video-dialog[open]::backdrop { animation: kit-video-fade .25s ease-out; }
+}
+@keyframes kit-video-in { from { opacity: 0; transform: scale(.96); } }
+@keyframes kit-video-fade { from { opacity: 0; } }

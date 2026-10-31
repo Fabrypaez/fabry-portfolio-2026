@@ -1,0 +1,13 @@
+/*!
+ * Colorlib kit: filter.css (pairs with js/filter.js)
+ * Timing for the View Transitions animation and keyboard focus on the filter controls.
+ */
+::view-transition-group(.kit-filter-item) { animation-duration: .45s; animation-timing-function: cubic-bezier(.2, .8, .2, 1); }
+::view-transition-old(.kit-filter-item),
+::view-transition-new(.kit-filter-item) { animation-duration: .3s; }
+/* Leave the rest of the page still during a filter transition. */
+::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+
+[data-filter] { cursor: pointer; }
+[data-filter]:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+[data-filter-grid] > [hidden] { display: none !important; }

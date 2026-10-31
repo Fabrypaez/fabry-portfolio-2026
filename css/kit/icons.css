@@ -1,0 +1,56 @@
+/*!
+ * Colorlib kit: icons.css (pairs with scripts/icons.mjs, copied into templates as tools/icons.mjs)
+ * Lucide line icons as inline SVG: <svg class="lucide" aria-hidden="true"><use href="#i-{name}"/></svg>
+ * The symbols come from the hidden sprite that `npm run icons` writes after <body> on each page.
+ * Icons take the text colour (currentColor) and the font size (1em box).
+ * Match the design's line weight with --icon-stroke on :root or any ancestor (Lucide draws
+ * at 2 in a 24 box: the rendered line = stroke × icon size ÷ 24, e.g. 1.5 at 32 px = 2 px).
+ * The class is `lucide` (Lucide's own convention), not `icon`: Colorlib themes use `.icon` for
+ * their own wrappers (<div class="icon"><svg class="lucide">), and this file leaves `.icon` alone.
+ */
+.lucide {
+  width: 1em;
+  height: 1em;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: var(--icon-stroke, 2);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vertical-align: -.125em;
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+/* Sizes, relative to the text (the same steps as Font Awesome's fa-sm … fa-5x). */
+.lucide-xs { font-size: .75em; }
+.lucide-sm { font-size: .875em; }
+.lucide-lg { font-size: 1.25em; vertical-align: -.2em; }
+.lucide-xl { font-size: 1.5em; vertical-align: -.25em; }
+.lucide-2x { font-size: 2em; }
+.lucide-3x { font-size: 3em; }
+.lucide-4x { font-size: 4em; }
+.lucide-5x { font-size: 5em; }
+
+/* A filled look for icons that are outlines in Lucide (a solid heart or star). */
+.lucide-fill { fill: currentColor; }
+
+/*
+ * CSS-drawn icons (what an icon font's ::before { content: "\e900" } did): a Lucide icon as a mask
+ * image, painted in the text colour. The --i-{name} custom properties come from
+ * scripts/icon-css.mjs (tools/icon-css.mjs in a template), which bakes the stroke into each one.
+ *   <span class="ico-mask" style="--ico: var(--i-check)" aria-hidden="true"></span>
+ * A pseudo-element writes the same declarations itself:
+ *   .list li::before { content: ""; display: inline-block; width: 1em; height: 1em;
+ *     background-color: currentColor; -webkit-mask: var(--i-check) no-repeat center / contain;
+ *     mask: var(--i-check) no-repeat center / contain; }
+ */
+.ico-mask {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -.125em;
+  flex-shrink: 0;
+  background-color: currentColor;
+  -webkit-mask: var(--ico) no-repeat center / contain;
+  mask: var(--ico) no-repeat center / contain;
+}

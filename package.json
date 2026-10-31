@@ -1,0 +1,28 @@
+{
+  "name": "videograph",
+  "displayName": "Videograph",
+  "version": "3.0.2",
+  "private": true,
+  "description": "Videograph: videographer and film studio HTML template by Colorlib",
+  "homepage": "https://colorlib.com",
+  "type": "module",
+  "scripts": {
+    "build": "npm run css && npm run js && npm run stamp",
+    "css": "sass --no-source-map --no-charset --silence-deprecation=import,global-builtin,color-functions,if-function sass/style.scss css/style.css && esbuild css/style.css --bundle --minify --target=chrome109,edge109,firefox115,safari15.6 --legal-comments=inline --external:*.woff2 --external:*.avif --external:*.jpg --external:*.png --log-level=warning --outfile=css/style.min.css",
+    "js": "esbuild js/index.js --bundle --minify --format=iife --target=es2020 --legal-comments=none --log-level=warning --outfile=js/main.min.js",
+    "stamp": "node tools/version.mjs",
+    "images": "node tools/images.mjs --css sass/_blog.scss --css sass/_home-page.scss",
+    "icons": "node tools/icons.mjs",
+    "watch": "sass --no-source-map --no-charset --silence-deprecation=import,global-builtin,color-functions,if-function --watch sass/style.scss:css/style.css"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "lucide-static": "1.49.0",
+    "sass": "1.105.0",
+    "sharp": "0.35.5"
+  },
+  "engines": {
+    "node": ">=20.19"
+  },
+  "license": "SEE LICENSE IN LICENSE.md"
+}

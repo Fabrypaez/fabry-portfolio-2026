@@ -1,0 +1,102 @@
+/*!
+ * Colorlib kit: mobile-nav.css (pairs with js/mobile-nav.js)
+ * Restyle through the custom properties below in the theme CSS.
+ */
+.kit-mobile-nav {
+  --kit-nav-width: min(320px, 86vw);
+  --kit-nav-bg: #fff;
+  --kit-nav-color: #1a1a1a;
+  --kit-nav-muted: rgba(0, 0, 0, .5);
+  --kit-nav-accent: currentColor;
+  --kit-nav-border: rgba(0, 0, 0, .08);
+  --kit-nav-backdrop: rgba(0, 0, 0, .5);
+  --kit-nav-font-size: 16px;
+  --kit-nav-speed: .3s;
+
+  position: fixed;
+  inset: 0 0 0 auto;
+  width: var(--kit-nav-width);
+  max-width: none;
+  height: 100%;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--kit-nav-color);
+  overflow: visible;
+}
+.kit-mobile-nav--left { inset: 0 auto 0 0; }
+.kit-mobile-nav::backdrop { background: var(--kit-nav-backdrop); }
+
+.kit-mobile-nav__panel {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--kit-nav-bg);
+  box-shadow: 0 0 30px rgba(0, 0, 0, .15);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  transition: transform var(--kit-nav-speed) cubic-bezier(.2, .8, .2, 1);
+}
+.kit-mobile-nav__head { display: flex; justify-content: flex-end; padding: 12px 12px 0; }
+.kit-mobile-nav__close {
+  width: 44px; height: 44px; padding: 0; border: 0; background: transparent;
+  color: inherit; font: 300 34px/44px Arial, sans-serif; cursor: pointer;
+}
+.kit-mobile-nav__body { padding: 8px 24px 32px; }
+.kit-mobile-nav__list, .kit-mobile-nav__sub { list-style: none; margin: 0; padding: 0; }
+.kit-mobile-nav__sub { padding-left: 16px; }
+.kit-mobile-nav__list li { position: relative; display: flex; flex-wrap: wrap; align-items: center; border-bottom: 1px solid var(--kit-nav-border); }
+.kit-mobile-nav__sub li:last-child { border-bottom: 0; }
+.kit-mobile-nav__list li > a {
+  flex: 1;
+  display: block;
+  padding: 12px 0;
+  color: inherit;
+  font-size: var(--kit-nav-font-size);
+  line-height: 1.4;
+  text-decoration: none;
+}
+.kit-mobile-nav__list li > a:hover, .kit-mobile-nav__list li.active > a, .kit-mobile-nav__list a[aria-current="page"] { color: var(--kit-nav-accent); }
+.kit-mobile-nav__list .kit-mobile-nav__sub, .kit-mobile-nav__list li > div.kit-mobile-nav__sub { flex-basis: 100%; }
+.kit-mobile-nav__sub a { font-size: calc(var(--kit-nav-font-size) - 1px); color: var(--kit-nav-muted); }
+.kit-mobile-nav__sub .dropdown-item { padding: 10px 0; display: block; color: inherit; text-decoration: none; }
+.kit-mobile-nav__list i[class*="angle"], .kit-mobile-nav__list .fa-angle-down { display: none; } /* desktop carets */
+
+.kit-mobile-nav__sub-toggle {
+  width: 44px; height: 44px; padding: 0; margin-right: -12px; border: 0; background: transparent;
+  color: inherit; cursor: pointer;
+}
+.kit-mobile-nav__sub-toggle > span {
+  display: inline-block; width: 8px; height: 8px;
+  border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+  transform: translateY(-2px) rotate(45deg); transition: transform .2s ease;
+}
+.kit-mobile-nav__sub-toggle[aria-expanded="true"] > span { transform: translateY(2px) rotate(-135deg); }
+.kit-mobile-nav :focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+
+/* Slide in / out */
+.kit-mobile-nav[open] .kit-mobile-nav__panel { transform: none; }
+.kit-mobile-nav--right.is-closing .kit-mobile-nav__panel { transform: translateX(100%); }
+.kit-mobile-nav--left.is-closing .kit-mobile-nav__panel { transform: translateX(-100%); }
+@starting-style {
+  .kit-mobile-nav--right[open] .kit-mobile-nav__panel { transform: translateX(100%); }
+  .kit-mobile-nav--left[open] .kit-mobile-nav__panel { transform: translateX(-100%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kit-mobile-nav__panel { transition: none; }
+}
+html.kit-mobile-nav-open { overflow: hidden; }
+
+/* Hamburger added when SlickNav's own button is gone (only if the theme has no .slicknav_btn rules). */
+.kit-mobile-nav-toggle:where(.slicknav_btn) {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; padding: 0; border: 0; background: transparent; color: inherit; cursor: pointer;
+}
+.kit-mobile-nav-toggle .slicknav_icon { display: inline-block; width: 24px; }
+.kit-mobile-nav-toggle .slicknav_icon-bar { display: block; height: 2px; margin: 5px 0; background: currentColor; border-radius: 1px; }
+.kit-mobile-nav-mount.slicknav_menu { display: flex; justify-content: flex-end; }
+.kit-mobile-nav-toggle .slicknav_menutxt { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
