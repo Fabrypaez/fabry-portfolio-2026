@@ -10757,11 +10757,15 @@ a:focus-visible {
   color: #ffffff;
   font-weight: 700;
   margin-bottom: 0px;
-  margin-top: 5px;
+  position: relative;
+  top: -8px;
+  /* margin-top: 5px; */
 }
 .counter__item__text p {
   color: #ffffff;
-  margin-bottom: 0;
+  margin-bottom: 20px;
+  position: relative;
+  top: -8px;
 }
 
 /*---------------------
