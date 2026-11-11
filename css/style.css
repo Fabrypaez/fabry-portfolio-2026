@@ -200,7 +200,9 @@ body {
   line-height: var(--bs-body-line-height);
   color: var(--bs-body-color);
   text-align: var(--bs-body-text-align);
+
   background-color: var(--bs-body-bg);
+  
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -10602,7 +10604,7 @@ a:focus-visible {
 -----------------------*/
 .work {
   overflow: hidden;
-  background: #100028;
+  background: #111111;
 }
 
 .work__gallery {
@@ -10769,89 +10771,44 @@ a:focus-visible {
 }
 
 /*---------------------
-  Team
+  About Homepage / Team
 -----------------------*/
 .team {
-  padding-bottom: 90px;
+  background: #111111;
+   padding-top: 90px;
+  padding-bottom: 60px;
   position: relative;
 }
 
-.section-title.team__title {
-  margin-bottom: 90px;
+.about-home__image {
+  max-width: 520px;
 }
 
-.team__item {
-  height: 390px;
-  position: relative;
-  overflow: hidden;
-}
-.team__item:hover .team__item__text {
-  bottom: 0;
-}
-.team__item.team__item--second {
-  margin-top: -60px;
-}
-.team__item.team__item--third {
-  margin-top: -120px;
-}
-.team__item.team__item--four {
-  margin-top: -180px;
-}
-
-.team__item__text {
-  text-align: center;
-  position: absolute;
-  left: 0;
-  bottom: -500px;
+.about-home__image img {
   width: 100%;
-  padding: 50px 0 30px;
-  z-index: 1;
-  transition: all, 0.5s;
-}
-.team__item__text:before {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  background: none;
-  background-image: image-set(url("../img/team/team-hover.avif") type('image/avif'), url("../img/team/team-hover.png") type('image/png'));
-  content: "";
-  z-index: -1;
-}
-.team__item__text h4, .team__item__text .h4 {
-  font-size: 22px;
-  color: #ffffff;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
-.team__item__text p {
-  color: #ffffff;
-  font-weight: 300px;
-  margin-bottom: 12px;
-}
-.team__item__text .team__item__social a {
-  color: #ffffff;
-  display: inline-block;
-  font-size: 15px;
-  margin-right: 18px;
-}
-.team__item__text .team__item__social a:last-child {
-  margin-right: 0;
+  height: auto;
+  display: block; 
 }
 
-.team__btn {
-  position: absolute;
-  right: 0;
-  bottom: 0;
+.about-home__content {
+  padding-left: 50px;
 }
+
+.about-home__content .section-title {
+  margin-bottom: 28px;
+}
+
+.about-home__content p {
+max-width: 480px;
+margin-bottom: 35px;
+}
+
 
 /*---------------------
   Latest
 -----------------------*/
 .latest {
-  background: #100028;
+  background: #111111;
   padding-bottom: 80px;
 }
 
@@ -10895,44 +10852,56 @@ a:focus-visible {
   Call To Active
 -----------------------*/
 .callto {
-  padding-top: 130px;
+  background: #111111;
+  padding-top: 60px;
+  padding-bottom: 75px;
 }
-.callto.sp__callto {
-  padding-top: 0;
-  background: #100028;
+
+.callto__text {
+text-align: center;
+}
+
+.callto__text span {
+  color: #ffffff;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 16px;
 }
 
 .callto__text h2, .callto__text .h2 {
   color: #ffffff;
-  font-size: 42px;
+  font-size: 38px;
   font-weight: 700;
-  line-height: 55px;
-  margin-bottom: 22px;
+  line-height: 1.2;
+  margin-bottom: 20px;
 }
+
 .callto__text p {
-  font-size: 15px;
-  color: #ffffff;
-  opacity: 0.9;
-  text-transform: uppercase;
-  margin-bottom: 55px;
+  font-size: 16px;
+  color: #adadad;
+  text-transform: none;
+  margin-bottom: 30px;
 }
+
 .callto__text a {
-  color: #100028;
-  background: #00bfe7;
+  color: #ffffff;
   font-size: 15px;
   font-weight: 700;
   font-family: "Play", sans-serif;
   letter-spacing: 2px;
   text-transform: uppercase;
-  display: inline-block;
-  padding: 14px 32px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
 }
 
 /*---------------------
   Footer
 -----------------------*/
 .footer {
-  background: #0a0119;
+  background: #111111;
 }
 
 .footer__top {
@@ -11210,7 +11179,7 @@ a:focus-visible {
   Services
 -----------------------*/
 .services {
-  background: #100028;
+  background: #111111;
   padding-bottom: 60px;
   padding-top: 110px;
 }
