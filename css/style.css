@@ -9798,6 +9798,7 @@ form [aria-busy=true] {
   --fa: "\f167";
 }
 
+
 @font-face {
   font-family: "Play";
   font-style: normal;
@@ -10905,7 +10906,7 @@ text-align: center;
 }
 
 .footer__top {
-  padding: 30px 0;
+  padding: 20px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -10919,38 +10920,86 @@ text-align: center;
 .footer__top__social {
   text-align: right;
 }
+
 .footer__top__social a {
-  display: inline-block;
-  font-size: 15px;
-  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
   height: 40px;
   width: 40px;
+
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
-  line-height: 44px;
-  text-align: center;
+
   margin-right: 6px;
+  transition: background-color 0.3s;
 }
+
+.footer__top__social a:hover {
+  background: #00bfe7;
+}
+
 .footer__top__social a:last-child {
   margin-right: 0;
 }
 
+.footer__top__social a img {
+  width: 17px;
+  height: 17px;
+  display:block;
+}
+
 .footer__option {
-  padding-bottom: 35px;
-  padding-top: 75px;
+  padding-bottom: 45px;
+  padding-top: 45px;
 }
 
 .footer__option__item {
-  margin-bottom: 35px;
+  margin-bottom: 0px;
 }
 .footer__option__item h5, .footer__option__item .h5 {
   color: #ffffff;
   font-weight: 700;
-  margin-bottom: 35px;
+  margin-bottom: 25px;
 }
+
+.footer__option__item h5 a {
+  color: #ffffff;
+}
+
+.footer__option__item h5 a:hover {
+  color: #00bfe7;
+}
+
+.footer__links {
+  display: flex;
+ align-items: center;
+  gap: 60px;
+  margin-left: 16px;
+}
+
+.footer__links h5 {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+ margin-bottom: 0;
+}
+
+.footer__links h5 a {
+ color: inherit;
+ font-size: inherit;
+ font-weight: inherit;
+ font-family: inherit;
+ transition: color 0.3s;
+}
+.footer__links h5 a:hover {
+  color: #00bfe7;
+}
+
 .footer__option__item p {
   font-weight: 300;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .footer__option__item .read__more {
   font-size: 14px;

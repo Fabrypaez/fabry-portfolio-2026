@@ -41,7 +41,13 @@
 
 <body>
     <!-- icons:start -->
-    <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+     <symbol id="i-mail" viewBox="0 0 24 24">
+        <rect width="20" height="16" x="2" y="4" rx="2"/>
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+    </symbol> 
+    
+    
+        <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
         <symbol id="i-arrow-right" viewBox="0 0 24 24">
             <path d="M5 12h14" />
             <path d="m12 5 7 7-7 7" />
@@ -372,14 +378,20 @@
                     <!-- Professional links -->
                     <div class="col-lg-6 col-md-6">
                         <div class="footer__top__social">
+
                             <a href="https://www.linkedin.com/in/fabryanypaez/" target="_blank"
                                 rel="noopener noreferrer" aria-label="LinkedIn">
-                                <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+                                <img src="img/icons/social/linkedin.svg" alt="" aria-hidden="true">
+                               </a>
+
                             <a href="https://vimeo.com/fabrypaez" target="_blank" rel="noopener noreferrer"
                                 aria-label="Vimeo">
-                                <i class="fa-brands fa-vimeo-v" aria-hidden="true"></i></a>
+                                <img src="img/icons/social/vimeo.svg" alt="" aria-hidden="true">
+                                </a>
+
                             <a href="mailto:fabryanypaez@gmail.com" aria-label="Email">
-                                <i class="fa-solid fa-envelope" aria-hidden="true"></i></a>
+                                <img src="img/icons/social/email.svg" alt="" aria-hidden="true">
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -388,25 +400,24 @@
 <!-- Footer Navigation -->
             <div class="footer__option">
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="footer__option__item">
-                            <h5>About</h5>
+
+                    <div class="col-lg-8 col-md-7">
+                        <div class="footer__links">
+                            <h5>
                             <a href="./about.html">About</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-3">
-                        <div class="footer__option__item">
-                            <h5>Work</h5>
+                            </h5>
+                      
+                            <h5>
                               <a href="./work.html">Work</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-3">
-                        <div class="footer__option__item">
-                            <h5>Eilux</h5>
+                              </h5>
+
+                            <h5>
                               <a href="./eilux.html">Eilux</a>
+                              </h5>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-12">
+
+                    <div class="col-lg-4 col-md-5">
                         <div class="footer__option__item">
                             <h5>Contact</h5>
                             
@@ -425,15 +436,15 @@
                     </div>
                 </div>
             </div>
+            
               <!-- Copyright -->
             <div class="footer__copyright">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <p class="footer__copyright__text">Copyright &copy;
+                        <p class="footer__copyright__text"> &copy;
                             <span class="js-year">2026</span>
-                            All rights reserved | This template is made with <svg class="lucide" aria-hidden="true">
-                                <use href="#i-heart" />
-                            </svg> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            Fabry Páez. All rights reserved <svg class="lucide" aria-hidden="true">
+                            </svg>
                         </p>
                     </div>
                 </div>
