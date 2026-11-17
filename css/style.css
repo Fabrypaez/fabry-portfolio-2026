@@ -11270,9 +11270,6 @@ align-items: center;
   padding-top: 110px;
 }
 
-.services__grid{
-  --bs-gutter-x:60px;
-}
 
 .services__title p {
   max-width: 350px;
