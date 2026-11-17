@@ -10782,7 +10782,11 @@ a:focus-visible {
 }
 
 .about-home__image {
-  max-width: 420px;
+  position: relative;
+  max-width: 440px;
+  margin-left: auto;
+  overflow: hidden;
+
 }
 
 .about-home__image img {
@@ -10791,8 +10795,19 @@ a:focus-visible {
   display: block; 
 }
 
+.about-home__image--original {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.about-home__image:hover .about-home__image--original {
+  opacity: 1;
+}
+
 .about-home__content {
-  padding-left: 50px;
+  padding-left: 25px;
 }
 
 .about-home__content .section-title {
@@ -11255,8 +11270,23 @@ align-items: center;
   padding-top: 110px;
 }
 
+.services__grid{
+  --bs-gutter-x:60px;
+}
+
 .services__title p {
+  max-width: 350px;
   margin-bottom: 45px;
+}
+
+@media (min-width: 992px) {
+  .services .col-lg-8> .row > .col-lg-6:nth-child(odd) {
+    padding-left: 75px;
+    padding-right: 30px;
+  }
+  .services .col-lg-8> .row > .col-lg-6:nth-child(even) {
+    padding-left: 45px;
+  }
 }
 
 .services__item {
